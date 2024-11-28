@@ -20,11 +20,34 @@ const Navigation = () => {
               <p className='text-white text-xl flex justify-center items-center gap-2 mr-4'>
                 Welcome <span className="text-limon text-4xl mb-1">{user.username}</span>
               </p>
+
               <ButtonLink to="/add-task">Crear Bebida</ButtonLink>
 
-              <Link className='border-2 border-[#ceff1a] rounded-full text-[#ceff1a] px-4 flex justify-center items-center' to="/" onClick={() => logout()}>
-                Logout
+              <Link className='w-fit text-center bg-black hover:bg-white hover:text-black px-4 py-2 text-white md:text-xl font-medium border-2 rounded-full border-white' to="/tasks">Mis Bebidas</Link>
+
+              <Link
+                className="border-2 border-[#ceff1a] rounded-full text-[#ceff1a] flex justify-center items-center w-12 h-12"
+                to="/"
+                onClick={() => logout()}
+                aria-label="Logout"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="#ceff1a"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 9V5.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 006 20.25h7.5a2.25 2.25 0 002.25-2.25V15M12 9l3 3m0 0l-3 3m3-3H3"
+                  />
+                </svg>
               </Link>
+
+
 
             </div>
           ) : (

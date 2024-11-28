@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, Message, Button, Input, Label } from "../components/ui";
 import { loginSchema } from "../schemas/auth";
- 
+
 export function LoginPage() {
   const {
     register,
@@ -27,7 +27,7 @@ export function LoginPage() {
 
   return (
     <div className="min-h-[calc(100vh-160px)] flex items-center justify-center bg-black">
-      <Card>
+      <div className="w-1/2 relative p-6 bg-white/10 border border-white/20 rounded-lg backdrop-blur-md shadow-lg h-fit">
         {loginErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
@@ -42,8 +42,12 @@ export function LoginPage() {
             placeholder="tucorreo@mail.com"
             {...register("email", { required: true })}
           />
-          <p>{errors.email?.message}</p>
 
+          {errors.email?.message && (
+            <p className="bg-red-500 text-white text-center rounded-md py-1 mt-2 text-sm">
+              {errors.email.message}
+            </p>
+          )}
           <Label htmlFor="password">Password:</Label>
           <Input
             type="password"
@@ -51,15 +55,16 @@ export function LoginPage() {
             placeholder="Write your password"
             {...register("password", { required: true, minLength: 6 })}
           />
-          <p>{errors.password?.message}</p>
-
+          {errors.email?.message && (
+            <p className="bg-red-500 text-white text-center rounded-md py-1 mt-2 text-sm">{errors.password?.message}</p>
+          )}
           <Button>Entrar</Button>
         </form>
 
         <p className="flex gap-x-2 justify-between text-white mt-2">
-        ¿no tienes una cuenta? <Link to="/register" className="border px-4 rounded-full">Registrarme</Link>
+          ¿no tienes una cuenta? <Link to="/register" className="border px-4 rounded-full">Registrarme</Link>
         </p>
-      </Card>
+      </div>
     </div>
   );
 }

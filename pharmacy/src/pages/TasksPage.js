@@ -23,7 +23,7 @@ export function TasksPage() {
         </div>
       )}
 
-      <div className="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-2 min-h-screen">
+      <div className="container mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-2 min-h-screen">
         {tasks.map((task) => (
           <TaskCard task={task} key={task._id} />
         ))}
